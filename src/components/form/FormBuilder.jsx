@@ -311,161 +311,161 @@ function FormBuilder() {
 
   return (
 
-    <div className="container mx-auto px-4 py-8">
-  <div className="bg-white shadow-xl rounded-lg p-6">
-    <div className="mb-6">
-      <input
-        type="text"
-        placeholder="Enter Form Name"
-        value={formName}
-        onChange={(e) => setFormName(e.target.value)}
-        className="w-full text-2xl font-bold border-b-2 border-blue-500 focus:outline-none focus:border-blue-700 transition-colors duration-300"
-      />
-    </div>
+//     <div className="container mx-auto px-4 py-8">
+//   <div className="bg-white shadow-xl rounded-lg p-6">
+//     <div className="mb-6">
+//       <input
+//         type="text"
+//         placeholder="Enter Form Name"
+//         value={formName}
+//         onChange={(e) => setFormName(e.target.value)}
+//         className="w-full text-2xl font-bold border-b-2 border-blue-500 focus:outline-none focus:border-blue-700 transition-colors duration-300"
+//       />
+//     </div>
 
-    <div className="mb-6">
-      <div className="flex items-center space-x-4">
-        <input
-          type="file"
-          ref={fileInputRef}
-          accept="image/*"
-          onChange={handleHeaderImageUpload}
-          className="hidden"
-          id="headerImageUpload"
-        />
-        <label
-          htmlFor="headerImageUpload"
-          className="flex items-center px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 cursor-pointer transition-colors"
-        >
-          <ImageIcon className="mr-2" />
-          Add Header Image
-        </label>
-        {headerImage && (
-          <div className="relative">
-            <img
-              src={headerImage.preview}
-              alt="Header"
-              className="h-24 w-48 object-cover rounded-md"
-            />
-            <button
-              onClick={removeHeaderImage}
-              className="absolute top-0 right-0 bg-red-500 text-white p-1 rounded-full"
-            >
-              <TrashIcon size={16} />
-            </button>
-          </div>
-        )}
-      </div>
-    </div>
+//     <div className="mb-6">
+//       <div className="flex items-center space-x-4">
+//         <input
+//           type="file"
+//           ref={fileInputRef}
+//           accept="image/*"
+//           onChange={handleHeaderImageUpload}
+//           className="hidden"
+//           id="headerImageUpload"
+//         />
+//         <label
+//           htmlFor="headerImageUpload"
+//           className="flex items-center px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 cursor-pointer transition-colors"
+//         >
+//           <ImageIcon className="mr-2" />
+//           Add Header Image
+//         </label>
+//         {headerImage && (
+//           <div className="relative">
+//             <img
+//               src={headerImage.preview}
+//               alt="Header"
+//               className="h-24 w-48 object-cover rounded-md"
+//             />
+//             <button
+//               onClick={removeHeaderImage}
+//               className="absolute top-0 right-0 bg-red-500 text-white p-1 rounded-full"
+//             >
+//               <TrashIcon size={16} />
+//             </button>
+//           </div>
+//         )}
+//       </div>
+//     </div>
 
-    <div className="mb-6 flex justify-between items-center">
-      <h3 className="text-xl font-semibold">Add Question Types</h3>
-      <button
-        onClick={() => setIsPreview(!isPreview)}
-        className={`px-4 py-2 ${isPreview ? "bg-gray-500 hover:bg-gray-600" : "bg-blue-500 hover:bg-blue-600"} text-white rounded-md transition-colors`}
-      >
-        {isPreview ? "Back to Edit" : "Preview Form"}
-      </button>
-    </div>
+//     <div className="mb-6 flex justify-between items-center">
+//       <h3 className="text-xl font-semibold">Add Question Types</h3>
+//       <button
+//         onClick={() => setIsPreview(!isPreview)}
+//         className={`px-4 py-2 ${isPreview ? "bg-gray-500 hover:bg-gray-600" : "bg-blue-500 hover:bg-blue-600"} text-white rounded-md transition-colors`}
+//       >
+//         {isPreview ? "Back to Edit" : "Preview Form"}
+//       </button>
+//     </div>
 
-    {!isPreview && (
-      <div className="flex space-x-4 mb-6">
-        {[{ type: "Categorize", label: "Categorize" }, { type: "Cloze", label: "Cloze" }, { type: "Comprehension", label: "Comprehension" }].map(
-          (questionType) => (
-            <button
-              key={questionType.type}
-              onClick={() => addQuestion(questionType.type)}
-              className="flex items-center bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-colors"
-            >
-              <PlusIcon className="mr-2" />
-              {questionType.label}
-            </button>
-          )
-        )}
-      </div>
-    )}
+//     {!isPreview && (
+//       <div className="flex space-x-4 mb-6">
+//         {[{ type: "Categorize", label: "Categorize" }, { type: "Cloze", label: "Cloze" }, { type: "Comprehension", label: "Comprehension" }].map(
+//           (questionType) => (
+//             <button
+//               key={questionType.type}
+//               onClick={() => addQuestion(questionType.type)}
+//               className="flex items-center bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-colors"
+//             >
+//               <PlusIcon className="mr-2" />
+//               {questionType.label}
+//             </button>
+//           )
+//         )}
+//       </div>
+//     )}
 
-    <div className="space-y-4">
-      <h3 className="text-xl font-semibold">{isPreview ? "Form Preview" : "Questions"}</h3>
-      {questions.map(renderQuestion)}
-    </div>
+//     <div className="space-y-4">
+//       <h3 className="text-xl font-semibold">{isPreview ? "Form Preview" : "Questions"}</h3>
+//       {questions.map(renderQuestion)}
+//     </div>
 
-    {isPreview && (
-      <div className="mt-6 flex justify-end">
-        <button
-          onClick={saveResponse}
+//     {isPreview && (
+//       <div className="mt-6 flex justify-end">
+//         <button
+//           onClick={saveResponse}
           
-          className={`px-6 py-2 ${
-            isSubmittingResponse
-              ? "bg-gray-500"
-              : "bg-green-600 hover:bg-green-700"
-          } text-white rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center`}
-        >
-          {isSubmittingResponse && (
-              <svg
-                className="animate-spin h-5 w-5 mr-2 text-white"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                ></circle>
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                ></path>
-              </svg>
-            )}
-          Submit Response
-        </button>
-      </div>
-    )}
+//           className={`px-6 py-2 ${
+//             isSubmittingResponse
+//               ? "bg-gray-500"
+//               : "bg-green-600 hover:bg-green-700"
+//           } text-white rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center`}
+//         >
+//           {isSubmittingResponse && (
+//               <svg
+//                 className="animate-spin h-5 w-5 mr-2 text-white"
+//                 xmlns="http://www.w3.org/2000/svg"
+//                 fill="none"
+//                 viewBox="0 0 24 24"
+//               >
+//                 <circle
+//                   className="opacity-25"
+//                   cx="12"
+//                   cy="12"
+//                   r="10"
+//                   stroke="currentColor"
+//                   strokeWidth="4"
+//                 ></circle>
+//                 <path
+//                   className="opacity-75"
+//                   fill="currentColor"
+//                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+//                 ></path>
+//               </svg>
+//             )}
+//           Submit Response
+//         </button>
+//       </div>
+//     )}
 
-    {!isPreview && (
-      <div className="mt-6 flex justify-end">
-        <button
-          onClick={saveForm}
-          disabled={!formName}
-          // className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          className={`px-6 py-2 ${
-            isSubmittingForm ? "bg-gray-500" : "bg-blue-600 hover:bg-blue-700"
-          } text-white rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center`}
-        >
-          {isSubmittingForm && (
-              <svg
-                className="animate-spin h-5 w-5 mr-2 text-white"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                ></circle>
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                ></path>
-              </svg>
-            )}
-          Save Form
-        </button>
-      </div>
-    )}
-  </div>
-</div>
+//     {!isPreview && (
+//       <div className="mt-6 flex justify-end">
+//         <button
+//           onClick={saveForm}
+//           disabled={!formName}
+//           // className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+//           className={`px-6 py-2 ${
+//             isSubmittingForm ? "bg-gray-500" : "bg-blue-600 hover:bg-blue-700"
+//           } text-white rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center`}
+//         >
+//           {isSubmittingForm && (
+//               <svg
+//                 className="animate-spin h-5 w-5 mr-2 text-white"
+//                 xmlns="http://www.w3.org/2000/svg"
+//                 fill="none"
+//                 viewBox="0 0 24 24"
+//               >
+//                 <circle
+//                   className="opacity-25"
+//                   cx="12"
+//                   cy="12"
+//                   r="10"
+//                   stroke="currentColor"
+//                   strokeWidth="4"
+//                 ></circle>
+//                 <path
+//                   className="opacity-75"
+//                   fill="currentColor"
+//                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+//                 ></path>
+//               </svg>
+//             )}
+//           Save Form
+//         </button>
+//       </div>
+//     )}
+//   </div>
+// </div>
 
 //   );
 
@@ -477,171 +477,171 @@ function FormBuilder() {
 
 
 
-  // <div className="container mx-auto px-4 py-8">
-  //   <div className="bg-white shadow-lg rounded-lg p-8 space-y-6">
-  //     {/* Form Title */}
-  //     <div className="space-y-2">
-  //       <input
-  //         type="text"
-  //         placeholder="Enter Form Name"
-  //         value={formName}
-  //         onChange={(e) => setFormName(e.target.value)}
-  //         className="w-full text-2xl font-semibold border-b-2 border-gray-300 focus:outline-none focus:border-blue-500 transition-all duration-300"
-  //       />
-  //     </div>
+  <div className="container mx-auto px-4 py-8">
+    <div className="bg-white shadow-lg rounded-lg p-8 space-y-6">
+      {/* Form Title */}
+      <div className="space-y-2">
+        <input
+          type="text"
+          placeholder="Enter Form Name"
+          value={formName}
+          onChange={(e) => setFormName(e.target.value)}
+          className="w-full text-2xl font-semibold border-b-2 border-gray-300 focus:outline-none focus:border-blue-500 transition-all duration-300"
+        />
+      </div>
 
-  //     {/* Header Image Upload */}
-  //     <div className="space-y-4">
-  //       <div className="flex items-center gap-4">
-  //         <input
-  //           type="file"
-  //           ref={fileInputRef}
-  //           accept="image/*"
-  //           onChange={handleHeaderImageUpload}
-  //           className="hidden"
-  //           id="headerImageUpload"
-  //         />
-  //         <label
-  //           htmlFor="headerImageUpload"
-  //           className="flex items-center px-4 py-2 bg-blue-500 text-white text-sm rounded-lg shadow-md hover:bg-blue-600 cursor-pointer transition-all duration-200"
-  //         >
-  //           <ImageIcon className="mr-2" />
-  //           Add Header Image
-  //         </label>
-  //         {headerImage && (
-  //           <div className="relative">
-  //             <img
-  //               src={headerImage.preview}
-  //               alt="Header"
-  //               className="h-24 w-48 object-cover rounded-md shadow-sm"
-  //             />
-  //             <button
-  //               onClick={removeHeaderImage}
-  //               className="absolute top-1 right-1 bg-red-500 text-white p-1 rounded-full shadow hover:bg-red-600 transition-all"
-  //             >
-  //               <TrashIcon size={16} />
-  //             </button>
-  //           </div>
-  //         )}
-  //       </div>
-  //     </div>
+      {/* Header Image Upload */}
+      <div className="space-y-4">
+        <div className="flex items-center gap-4">
+          <input
+            type="file"
+            ref={fileInputRef}
+            accept="image/*"
+            onChange={handleHeaderImageUpload}
+            className="hidden"
+            id="headerImageUpload"
+          />
+          <label
+            htmlFor="headerImageUpload"
+            className="flex items-center px-4 py-2 bg-blue-500 text-white text-sm rounded-lg shadow-md hover:bg-blue-600 cursor-pointer transition-all duration-200"
+          >
+            <ImageIcon className="mr-2" />
+            Add Header Image
+          </label>
+          {headerImage && (
+            <div className="relative">
+              <img
+                src={headerImage.preview}
+                alt="Header"
+                className="h-24 w-48 object-cover rounded-md shadow-sm"
+              />
+              <button
+                onClick={removeHeaderImage}
+                className="absolute top-1 right-1 bg-red-500 text-white p-1 rounded-full shadow hover:bg-red-600 transition-all"
+              >
+                <TrashIcon size={16} />
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
 
-  //     {/* Add Question Types */}
-  //     <div className="flex justify-between items-center">
-  //       <h3 className="text-lg font-medium">Add Question Types</h3>
-  //       <button
-  //         onClick={() => setIsPreview(!isPreview)}
-  //         className={`px-4 py-2 text-sm rounded-lg shadow-md ${
-  //           isPreview
-  //             ? "bg-gray-500 hover:bg-gray-600 text-white"
-  //             : "bg-blue-500 hover:bg-blue-600 text-white"
-  //         } transition-all duration-200`}
-  //       >
-  //         {isPreview ? "Back to Edit" : "Preview Form"}
-  //       </button>
-  //     </div>
+      {/* Add Question Types */}
+      <div className="flex justify-between items-center">
+        <h3 className="text-lg font-medium">Add Question Types</h3>
+        <button
+          onClick={() => setIsPreview(!isPreview)}
+          className={`px-4 py-2 text-sm rounded-lg shadow-md ${
+            isPreview
+              ? "bg-gray-500 hover:bg-gray-600 text-white"
+              : "bg-blue-500 hover:bg-blue-600 text-white"
+          } transition-all duration-200`}
+        >
+          {isPreview ? "Back to Edit" : "Preview Form"}
+        </button>
+      </div>
 
-  //     {/* Question Type Buttons */}
-  //     {!isPreview && (
-  //       <div className="flex gap-4">
-  //         {[
-  //           { type: "Categorize", label: "Categorize" },
-  //           { type: "Cloze", label: "Cloze" },
-  //           { type: "Comprehension", label: "Comprehension" },
-  //         ].map((questionType) => (
-  //           <button
-  //             key={questionType.type}
-  //             onClick={() => addQuestion(questionType.type)}
-  //             className="flex items-center px-4 py-2 bg-green-500 text-white text-sm rounded-lg shadow-md hover:bg-green-600 transition-all duration-200"
-  //           >
-  //             <PlusIcon className="mr-2" />
-  //             {questionType.label}
-  //           </button>
-  //         ))}
-  //       </div>
-  //     )}
+      {/* Question Type Buttons */}
+      {!isPreview && (
+        <div className="flex gap-4">
+          {[
+            { type: "Categorize", label: "Categorize" },
+            { type: "Cloze", label: "Cloze" },
+            { type: "Comprehension", label: "Comprehension" },
+          ].map((questionType) => (
+            <button
+              key={questionType.type}
+              onClick={() => addQuestion(questionType.type)}
+              className="flex items-center px-4 py-2 bg-green-500 text-white text-sm rounded-lg shadow-md hover:bg-green-600 transition-all duration-200"
+            >
+              <PlusIcon className="mr-2" />
+              {questionType.label}
+            </button>
+          ))}
+        </div>
+      )}
 
-  //     {/* Questions Section */}
-  //     <div className="space-y-4">
-  //       <h3 className="text-lg font-medium">
-  //         {isPreview ? "Form Preview" : "Questions"}
-  //       </h3>
-  //       {questions.map(renderQuestion)}
-  //     </div>
+      {/* Questions Section */}
+      <div className="space-y-4">
+        <h3 className="text-lg font-medium">
+          {isPreview ? "Form Preview" : "Questions"}
+        </h3>
+        {questions.map(renderQuestion)}
+      </div>
 
-  //     {/* Submit Buttons */}
-  //     <div className="flex justify-end gap-4 mt-6">
-  //       {isPreview ? (
-  //         <button
-  //           onClick={saveResponse}
-  //           className={`flex items-center px-6 py-2 rounded-lg text-white shadow-md ${
-  //             isSubmittingResponse
-  //               ? "bg-gray-500 cursor-not-allowed"
-  //               : "bg-green-600 hover:bg-green-700"
-  //           } transition-all`}
-  //         >
-  //           {isSubmittingResponse && (
-  //             <svg
-  //               className="animate-spin h-5 w-5 mr-2"
-  //               xmlns="http://www.w3.org/2000/svg"
-  //               fill="none"
-  //               viewBox="0 0 24 24"
-  //             >
-  //               <circle
-  //                 className="opacity-25"
-  //                 cx="12"
-  //                 cy="12"
-  //                 r="10"
-  //                 stroke="currentColor"
-  //                 strokeWidth="4"
-  //               ></circle>
-  //               <path
-  //                 className="opacity-75"
-  //                 fill="currentColor"
-  //                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-  //               ></path>
-  //             </svg>
-  //           )}
-  //           Submit Response
-  //         </button>
-  //       ) : (
-  //         <button
-  //           onClick={saveForm}
-  //           disabled={!formName}
-  //           className={`flex items-center px-6 py-2 rounded-lg text-white shadow-md ${
-  //             isSubmittingForm
-  //               ? "bg-gray-500 cursor-not-allowed"
-  //               : "bg-blue-600 hover:bg-blue-700"
-  //           } transition-all`}
-  //         >
-  //           {isSubmittingForm && (
-  //             <svg
-  //               className="animate-spin h-5 w-5 mr-2"
-  //               xmlns="http://www.w3.org/2000/svg"
-  //               fill="none"
-  //               viewBox="0 0 24 24"
-  //             >
-  //               <circle
-  //                 className="opacity-25"
-  //                 cx="12"
-  //                 cy="12"
-  //                 r="10"
-  //                 stroke="currentColor"
-  //                 strokeWidth="4"
-  //               ></circle>
-  //               <path
-  //                 className="opacity-75"
-  //                 fill="currentColor"
-  //                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-  //               ></path>
-  //             </svg>
-  //           )}
-  //           Save Form
-  //         </button>
-  //       )}
-  //     </div>
-  //   </div>
-  // </div>
+      {/* Submit Buttons */}
+      <div className="flex justify-end gap-4 mt-6">
+        {isPreview ? (
+          <button
+            onClick={saveResponse}
+            className={`flex items-center px-6 py-2 rounded-lg text-white shadow-md ${
+              isSubmittingResponse
+                ? "bg-gray-500 cursor-not-allowed"
+                : "bg-green-600 hover:bg-green-700"
+            } transition-all`}
+          >
+            {isSubmittingResponse && (
+              <svg
+                className="animate-spin h-5 w-5 mr-2"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+            )}
+            Submit Response
+          </button>
+        ) : (
+          <button
+            onClick={saveForm}
+            disabled={!formName}
+            className={`flex items-center px-6 py-2 rounded-lg text-white shadow-md ${
+              isSubmittingForm
+                ? "bg-gray-500 cursor-not-allowed"
+                : "bg-blue-600 hover:bg-blue-700"
+            } transition-all`}
+          >
+            {isSubmittingForm && (
+              <svg
+                className="animate-spin h-5 w-5 mr-2"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+            )}
+            Save Form
+          </button>
+        )}
+      </div>
+    </div>
+  </div>
 );
 
 }
