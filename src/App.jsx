@@ -1,6 +1,6 @@
 
 import './App.css'
-import FormBuilder from './components/form/FormBuilder2'
+import FormBuilder from './components/form/FormBuilder'
 import CategorizeQuestion from './components/questionTypes/CategorizeQuestion2'
 
 
